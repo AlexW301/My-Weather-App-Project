@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { SearchBar } from 'react-native-elements';
 
 export default function HomeScreen() {
 
@@ -17,6 +18,13 @@ export default function HomeScreen() {
   getWeather('23814');
   return (
     <View style={styles.container}>
+         <SearchBar
+        placeholder="Type Here..."
+        onChangeText=''
+        value=''
+        lightTheme={true}
+        style={styles.SearchBar}
+      />
       <Text>{myText}</Text>
     </View>
   );
@@ -29,4 +37,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  searchBar: {
+      width: '300px'
+  }
 });
