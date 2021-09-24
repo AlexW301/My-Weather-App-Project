@@ -30,6 +30,12 @@ export default function SearchScreen() {
 
 searchLocation('Salem');
 
+let getCity = async (city) => {
+    let response = await fetch(`https://weather-by-cities.azurewebsites.net/cities`)
+    let data = await response.json();
+    console.log(data)
+  }
+
 
   return (
     <View style={styles.container}>
@@ -43,7 +49,7 @@ searchLocation('Salem');
 
       <Text>{myText}</Text>
 
-        <Text onPress={function(){setVisible(false)}}>{search}</Text>
+        <Text onPress={function(){getCity('Boston')}}>{search}</Text>
         <FlatList
         data={[
           {key: 'Devin'},
