@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { SearchBar, Overlay } from 'react-native-elements';
 import { Avatar } from 'react-native-elements';
-import test from '../local-data/test.json'
 
 export default function SearchScreen() {
 
@@ -23,13 +22,14 @@ export default function SearchScreen() {
   // getWeather('23814');
 
   let searchLocation = async (city) => {
-    let response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},nh,us&units=imperial&appid=${apiKey}`)
+    let response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`)
     let data = await response.json();
     console.log(data.sys)
     setMyText(data.main.temp)
   }
 
-  searchLocation('Salem');
+searchLocation('Salem');
+
 
   return (
     <View style={styles.container}>
